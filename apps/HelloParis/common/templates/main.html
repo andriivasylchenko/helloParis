@@ -1,0 +1,54 @@
+<ion-view>
+  <ion-content class="padding">
+    <div class="mainPage">
+      <div class="introText" ng-show="showIntro">
+        Talk to me
+      </div>
+    <div class="languages" ng-if="translated == true">
+      <div class="list">
+
+        <a class="item">
+          {{EnglishText}}
+        </a>
+        <div class="item item-divider historyDivider">
+          <div class="positive paddingBig">English</div>
+        </div>
+
+      </div>
+
+      <div class="list">
+
+        <a class="item">
+          {{FrenchText}}
+        </a>
+        <div class="item item-icon-left item-divider historyDivider" ng-click="speakFrench(FrenchText)">
+          <div class="positive">French</div>
+          <span class="note"><i class="icon ion-ios-volume-high FrenchIcon positive"></i></span>
+
+        </div>
+
+      </div>
+    </div>
+
+      <div class="HistoryMain" ng-if="showIntro == false" ng-show="showHistory">
+
+          <div class="list">
+
+            <div class="item item-divider historyDivider">
+              <div class="positive">History</div>
+            </div>
+
+            <a class="item" ng-click="takeItemFromHistory()" ng-repeat="item in items">
+              {{item.english}}
+            </a>
+        </div>
+      </div>
+
+      <div class="middle-mic" ng-class="moveDown">
+        <ion-spinner icon="spiral" class="spinner-positive backgroundSpinner" ng-show="showSpinner"></ion-spinner>
+        <button ng-class="micButton" ng-click="TalkToMe()"></button>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
